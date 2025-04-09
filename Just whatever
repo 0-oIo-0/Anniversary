@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f3f3;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .envelope {
+            width: 100px;
+            margin: 20px auto;
+            cursor: pointer;
+        }
+        .hidden-message {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #ffebcd;
+            border-radius: 5px;
+        }
+        .gallery img {
+            width: 100px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .countdown {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Anniversary, My Love!</h1>
+        <img src="envelope.png" class="envelope" onclick="openLetter()" alt="Envelope">
+        <div class="hidden-message" id="letter">
+            <p>My Dearest,</p>
+            <p>You mean the world to me, and every moment with you has been special. I cherish our memories, our laughter, and our love.</p>
+            <p>Forever yours, Atif</p>
+        </div>
+        
+        <h2>Our Memories</h2>
+        <div class="gallery">
+            <img src="memory1.jpg" alt="Memory 1">
+            <img src="memory2.jpg" alt="Memory 2">
+            <img src="memory3.jpg" alt="Memory 3">
+            <!-- Add more images here -->
+        </div>
+        
+        <div class="countdown" id="countdown"></div>
+    </div>
+
+    <script>
+        function openLetter() {
+            document.getElementById('letter').style.display = 'block';
+        }
+
+        function countdown() {
+            const nextAnniversary = new Date('April 10, 2026 00:00:00').getTime();
+            setInterval(() => {
+                const now = new Date().getTime();
+                const distance = nextAnniversary - now;
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                document.getElementById('countdown').innerText = `Next Anniversary in: ${days} days`;
+            }, 1000);
+        }
+        countdown();
+    </script>
+</body>
+</html>
